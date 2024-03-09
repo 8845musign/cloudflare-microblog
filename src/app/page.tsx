@@ -2,17 +2,10 @@ import { Article } from "@/types";
 import type { NextPage, GetServerSideProps } from "next";
 import { Button } from "@/components/ui/button";
 
-import axios from "axios";
-
-const axiosInstance = axios.create({
-  baseURL: `http://localhost:3000`,
-  headers: {
-    Accept: "application/json",
-  },
-});
+import { axios } from "@/lib/axios";
 
 const Home: NextPage = async () => {
-  const data = await axiosInstance.get("/api/articles");
+  const data = await axios.get("/api/articles");
   const allArticles = (await data.data) as Article[];
 
   return (
