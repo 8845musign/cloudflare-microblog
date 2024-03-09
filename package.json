@@ -10,11 +10,12 @@
     "pages:build": "npx @cloudflare/next-on-pages",
     "preview": "npm run pages:build && wrangler pages dev .vercel/output/static",
     "deploy": "npm run pages:build && wrangler pages deploy .vercel/output/static",
-    "db:init": "wrangler d1 execute microblog --local --file=./schemes/00.articles.sql", 
+    "db:init": "wrangler d1 execute microblog --local --file=./schemes/00.articles.sql",
     "db:test-data": "wrangler d1 execute microblog --local --file=./schemes/99.tests.sql"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
+    "axios": "^1.6.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-react": "^0.352.0",

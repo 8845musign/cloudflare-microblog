@@ -1,16 +1,11 @@
 import { getRequestContext } from "@cloudflare/next-on-pages";
+import { Article } from "@/types";
+import { NextResponse } from "next/server";
 
 export const runtime = "edge";
 
-export type Article = {
-  id: string;
-  title: string;
-  body: string;
-  created_at: string;
-  updated_at: string;
-};
-
 export async function GET() {
+  console.log(getRequestContext());
   const db = getRequestContext().env.DB;
 
   const { results } = await db
@@ -19,7 +14,6 @@ export async function GET() {
     )
     .all<Article>();
   const articles = results;
-  console.log(articles);
 
-  return new Response("Hello World");
+  return NextResponse.json(articles);
 }
