@@ -5,7 +5,6 @@ import { NextResponse } from "next/server";
 export const runtime = "edge";
 
 export async function GET() {
-  console.log(getRequestContext());
   const db = getRequestContext().env.DB;
 
   const { results } = await db

@@ -1,5 +1,6 @@
 import { Article } from "@/types";
-import type { NextPage, GetServerSideProps } from "next";
+import type { NextPage } from "next";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 import { axios } from "@/lib/axios";
@@ -12,8 +13,9 @@ const Home: NextPage = async () => {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       {allArticles.map((article) => (
         <article key={article.id} className="mb-8">
-          <h2 className="text-2xl font-bold">{article.title}</h2>
-          <p>{article.body}</p>
+          <h2 className="text-2xl font-bold">
+            <Link href={`/articles/${article.id}`}>{article.title}</Link>
+          </h2>
         </article>
       ))}
       <Button>ボタン</Button>
