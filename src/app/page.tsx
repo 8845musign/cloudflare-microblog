@@ -11,6 +11,7 @@ const Home: NextPage = async () => {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <Link href="/login">ログイン</Link>
       {allArticles.map((article) => (
         <article key={article.id} className="mb-8">
           <h2 className="text-2xl font-bold">
